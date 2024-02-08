@@ -12,7 +12,7 @@ import com.nfd.progetto_ids_nfd.Model.Users.User;
  * a path that users will be able to see in the view. 
  */
 public class Itinerary {
-    // The author of the post
+    // The author of the itinerary
     private User author;
 
     // The list of themes (can be empty, up to 4 or more themes)
@@ -25,12 +25,12 @@ public class Itinerary {
         this.themeList = new ArrayList<>();
     }
 
-    // Getter method to retrieve the author of the post
+    // Getter method to retrieve the author of the itinerary
     public User getAuthor() {
         return author;
     }
 
-    // Setter method to set or update the author of the post
+    // Setter method to set or update the author of the itinerary
     public void setAuthor(User author) {
         this.author = author;
     }
