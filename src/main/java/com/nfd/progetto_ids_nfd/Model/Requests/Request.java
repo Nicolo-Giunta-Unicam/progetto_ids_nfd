@@ -1,6 +1,7 @@
 package com.nfd.progetto_ids_nfd.Model.Requests;
 
 import com.nfd.progetto_ids_nfd.Model.Users.User;
+import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.RequestState;
 
 /*
  * Request is an abstract class that is described by sender and receiver.
@@ -10,6 +11,7 @@ public abstract class Request {
     // Properties
     protected User sender; // The user who sent the request
     protected User receiver; // The user who receives the request
+    protected RequestState state; // Current state of the request
 
     // Getter for the sender property
     public User getSender() {
@@ -34,11 +36,13 @@ public abstract class Request {
     // Method to approve the request
     public void Approve() {
         // TODO Implementation of the Approve method
+        state = RequestState.approved;
     }
 
     // Method to disapprove the request
     public void Disapprove() {
         // TODO Implementation of the Disapprove method
+        state = RequestState.disapproved;
     }
 }
 

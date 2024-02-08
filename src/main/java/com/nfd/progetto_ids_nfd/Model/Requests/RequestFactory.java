@@ -1,9 +1,9 @@
 package com.nfd.progetto_ids_nfd.Model.Requests;
 
 import com.nfd.progetto_ids_nfd.Model.Contents.Post;
-import com.nfd.progetto_ids_nfd.Model.Requests.RoleRequest.Role;
 import com.nfd.progetto_ids_nfd.Model.Themes.Theme;
 import com.nfd.progetto_ids_nfd.Model.Users.User;
+import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
 
 /*
  * RequestFactory is the application of the factory design pattern and

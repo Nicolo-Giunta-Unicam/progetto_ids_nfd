@@ -1,6 +1,8 @@
 package com.nfd.progetto_ids_nfd.Model.Users;
 import java.util.Date;
 
+import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
+
 /*
  * UserFactory is the application of the factory design pattern and
  * is responsible for creating different types of users.
@@ -35,5 +37,10 @@ public class UserFactory {
     public ModeratorUser createModeratorUser(String name, String surname, String email, String password, Date registrationDate) {
         return new ModeratorUser(name, surname, email, password, registrationDate);
         // TODO
+    }
+
+    public User ConvertUser(User user, Role role){
+        // TODO Implement
+        return null;
     }
 }
