@@ -2,6 +2,7 @@ package com.nfd.progetto_ids_nfd.Model.Requests;
 
 import com.nfd.progetto_ids_nfd.Model.Users.User;
 import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.RequestState;
+import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
 
 /*
  * Request is an abstract class that is described by sender and receiver.
@@ -10,7 +11,7 @@ import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.RequestState;
 public abstract class Request {
     // Properties
     protected User sender; // The user who sent the request
-    protected User receiver; // The user who receives the request
+    protected Role receiver; // The role of the user who receives the request
     protected RequestState state; // Current state of the request
 
     // Getter for the sender property
@@ -24,12 +25,12 @@ public abstract class Request {
     }
 
     // Getter for the receiver property
-    public User getReceiver() {
+    public Role getReceiver() {
         return receiver;
     }
 
     // Setter for the receiver property
-    public void setReceiver(User receiver) {
+    public void setReceiver(Role receiver) {
         this.receiver = receiver;
     }
 

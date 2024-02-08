@@ -1,6 +1,7 @@
 package com.nfd.progetto_ids_nfd.Model.Requests;
 
 import com.nfd.progetto_ids_nfd.Model.Contents.Post;
+import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
 
 /*
  * This is a request for publishing a Post, it's defined by its
@@ -21,5 +22,9 @@ public class PostRequest extends Request {
     @Override
     public void Disapprove() {
         // TODO Implementation of the Disapprove method for the post request
+    }
+    // Send the request to another user that is a Gestor
+    public void Forward(){
+        receiver = Role.Gestor;
     }
 }

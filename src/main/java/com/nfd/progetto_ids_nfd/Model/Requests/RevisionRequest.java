@@ -1,6 +1,7 @@
 package com.nfd.progetto_ids_nfd.Model.Requests;
 
 import com.nfd.progetto_ids_nfd.Model.Contents.Post;
+import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
 
 /*
  * This request is generated when a Post is reported by a User.
@@ -21,5 +22,9 @@ public class RevisionRequest extends Request {
     @Override
     public void Disapprove() {
         // TODO Implementation of the Disapprove method for the revision request
+    }
+    // Send the request to another user that is a Gestor
+    public void Forward(){
+        receiver = Role.Gestor;
     }
 }
