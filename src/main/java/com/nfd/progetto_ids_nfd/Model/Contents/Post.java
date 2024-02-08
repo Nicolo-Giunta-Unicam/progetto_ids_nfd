@@ -42,7 +42,7 @@ public class Post {
     }
 
     // Getter method to retrieve the theme related to the post
-    public Theme getRelaTheme() {
+    public Theme getRelatedTheme() {
         return relatedTheme;
     }
 

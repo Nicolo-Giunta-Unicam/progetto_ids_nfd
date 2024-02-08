@@ -1,5 +1,10 @@
 package com.nfd.progetto_ids_nfd.Model.Users;
 import java.util.Date;
+
+import com.nfd.progetto_ids_nfd.Model.Contents.Post;
+import com.nfd.progetto_ids_nfd.Model.Requests.Request;
+import com.nfd.progetto_ids_nfd.Model.Requests.RequestFactory;
+import com.nfd.progetto_ids_nfd.Model.Themes.Theme;
 /*
  * CuratorUser can upload contests, events or tourist places/services of 
  * which it has authority.
@@ -10,11 +15,17 @@ public class CuratorUser extends AuthenticatedUser {
         super(name, surname, email, password, registrationDate);
     }
 
-    public void createPostRequest(){
+    @Override
+    public void createPostRequest(Post post){
         // TODO
+        Request request = RequestFactory.createPostRequest(this, post);
+        // If the user is also the curator of the choosen theme approve automatically the request
+        if(post.getRelatedTheme().getCurator().equals(this)) 
+            request.Approve();
     }
 
-    public void createActivityRequest(){
+    public void createThemeRequest(Theme theme){
         // TODO
+        Request request = RequestFactory.createThemeRequest(this, theme);
     }
 }

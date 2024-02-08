@@ -11,22 +11,22 @@ import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
  */
 public class RequestFactory {
     // Method to create a PostRequest
-    public Request createPostRequest(User sender, Post post) {
+    public static Request createPostRequest(User sender, Post post) {
         return new PostRequest();
     }
 
     // Method to create a RevisionRequest
-    public Request createRevisionRequest(User sender, Post post) {
+    public static Request createRevisionRequest(User sender, Post post) {
         return new RevisionRequest(); // TODO implement creation
     }
 
     // Method to create a RoleRequest
-    public Request createRoleRequest(User sender, Role role) {
+    public static Request createRoleRequest(User sender, Role role) {
         return new RoleRequest(); // TODO implement creation
     }
 
     // Method to create a ThemeRequest
-    public Request createThemeRequest(User sender, Theme theme) {
+    public static Request createThemeRequest(User sender, Theme theme) {
         return new ThemeRequest(); // TODO implement creation
     }
 }

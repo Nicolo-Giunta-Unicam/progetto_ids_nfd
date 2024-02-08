@@ -19,7 +19,7 @@ public class Itinerary {
     private List<Theme> themeList; 
     
     // Constructor to initialize an Itinerary instance with the given parameters
-    public Itinerary(User author, Theme themeList)
+    public Itinerary(User author, List<Theme> themeList2)
     {
         this.author=author;
         this.themeList = new ArrayList<>();
