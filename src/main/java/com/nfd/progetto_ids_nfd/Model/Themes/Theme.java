@@ -18,6 +18,16 @@ public abstract class Theme {
     protected String description;
     protected List<String> contactsList;
 
+    public Theme (CuratorUser curator, Date additiDate, String name, Coordinates coordinates, String description, List<String> contactList)
+    {
+        this.curator=curator;
+        this.additionDate=additiDate;
+        this.name=name;
+        this.coordinates=coordinates;
+        this.description=description;
+        this.contactsList=contactList;
+    }
+
     // Getters
     public CuratorUser getCurator() {
         return curator;
