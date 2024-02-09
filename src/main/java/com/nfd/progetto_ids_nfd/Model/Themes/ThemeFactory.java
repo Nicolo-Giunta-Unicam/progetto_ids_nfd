@@ -9,7 +9,7 @@ public class ThemeFactory {
 
     // Method to create an instance of Activity theme
     public static Theme createActivityTheme() {
-        return new Activity();
+        return new Event();
     }
 
     // Method to create an instance of Event theme
