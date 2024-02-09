@@ -21,7 +21,7 @@ public class CuratorUser extends AuthenticatedUser {
         Request request = RequestFactory.createPostRequest(this, post);
         // If the user is also the curator of the choosen theme approve automatically the request
         if(post.getRelatedTheme().getCurator().equals(this)) 
-            request.Approve();
+            request.approve(this);
     }
 
     public void createThemeRequest(Theme theme){

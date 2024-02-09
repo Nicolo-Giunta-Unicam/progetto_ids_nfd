@@ -1,5 +1,7 @@
 package com.nfd.progetto_ids_nfd.Model.Requests;
 
+import com.nfd.progetto_ids_nfd.Model.Users.GestorUser;
+import com.nfd.progetto_ids_nfd.Model.Users.User;
 import com.nfd.progetto_ids_nfd.Model.Users.UserFactory;
 import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
 
@@ -13,6 +15,12 @@ public class RoleRequest extends Request {
     // Property to store the requested role
     protected Role requestedRole;
 
+
+    public RoleRequest(User sender, Role receiver, Role requestedRole){
+        super(sender, receiver);
+        this.requestedRole = requestedRole;
+    }
+
     // Getter for the requestedRole property
     public Role getRequestedRole() {
         return requestedRole;
@@ -24,9 +32,20 @@ public class RoleRequest extends Request {
     }
 
     @Override
-    public void Approve(){
-        super.Approve();
-        UserFactory factory = new UserFactory();
-        sender = factory.ConvertUser(sender, requestedRole);
+    public void approve(User validator){
+        if(validator instanceof GestorUser){
+            super.approve(validator);
+            sender = UserFactory.ConvertUser(sender, requestedRole);
+            // TODO Update the Request and the User on the DataBase
+        }
     }
+
+    @Override
+    public void disapprove(User validator){
+        if(validator instanceof GestorUser){
+            super.disapprove(validator);
+            // TODO Delete request from DataBase
+        }
+    }
+
 }

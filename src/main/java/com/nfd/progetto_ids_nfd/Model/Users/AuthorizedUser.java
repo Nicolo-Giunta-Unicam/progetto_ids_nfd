@@ -18,6 +18,6 @@ public class AuthorizedUser extends AuthenticatedUser {
     public void createPostRequest(Post post){
         // TODO
         Request request = RequestFactory.createPostRequest(this, post);
-        request.Approve();
+        request.approve(this);
     }
 }

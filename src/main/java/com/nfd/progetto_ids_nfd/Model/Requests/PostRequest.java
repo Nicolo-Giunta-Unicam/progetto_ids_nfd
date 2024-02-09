@@ -1,6 +1,9 @@
 package com.nfd.progetto_ids_nfd.Model.Requests;
 
 import com.nfd.progetto_ids_nfd.Model.Contents.Post;
+import com.nfd.progetto_ids_nfd.Model.Users.AuthenticatedUser;
+import com.nfd.progetto_ids_nfd.Model.Users.GestorUser;
+import com.nfd.progetto_ids_nfd.Model.Users.User;
 import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
 
 /*
@@ -12,19 +15,32 @@ public class PostRequest extends Request {
     // Property
     protected Post post; // The post associated with the request
 
+    public PostRequest(AuthenticatedUser sender, Role receiver, Post post){
+        super(sender, receiver);
+        this.post = post;
+    }
+
     // Method to approve the post request
     @Override
-    public void Approve() {
-        // TODO Implementation of the Approve method for the post request
+    public void approve(User validator) {
+        super.approve(validator);
+        post.setVisibility(true);
+        // TODO Send Post to DataBase for the pubblication
     }
 
     // Method to disapprove the post request
     @Override
-    public void Disapprove() {
-        // TODO Implementation of the Disapprove method for the post request
+    public void disapprove(User validator) {
+        super.disapprove(validator);
+        post.setVisibility(false);
+        if(validator instanceof GestorUser){
+            // TODO Delete Request and Post from the DataBase
+        }
     }
+
     // Send the request to another user that is a Gestor
     public void Forward(){
         receiver = Role.Gestor;
+        // TODO Update Request in DataBase
     }
 }

@@ -13,6 +13,13 @@ public abstract class Request {
     protected User sender; // The user who sent the request
     protected Role receiver; // The role of the user who receives the request
     protected RequestState state; // Current state of the request
+    protected User validator; // The User that Approves or Disapproves the request
+
+    public Request(User sender, Role receiver){
+        this.sender = sender;
+        this.receiver = receiver;
+        this.state = RequestState.pending;
+    }
 
     // Getter for the sender property
     public User getSender() {
@@ -35,14 +42,14 @@ public abstract class Request {
     }
 
     // Method to approve the request
-    public void Approve() {
-        // TODO Implementation of the Approve method
+    public void approve(User validator) {
+        this.validator = validator;
         state = RequestState.approved;
     }
 
     // Method to disapprove the request
-    public void Disapprove() {
-        // TODO Implementation of the Disapprove method
+    public void disapprove(User validator) {
+        this.validator = validator;
         state = RequestState.disapproved;
     }
 }

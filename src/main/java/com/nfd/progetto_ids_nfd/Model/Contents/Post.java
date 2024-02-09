@@ -23,12 +23,16 @@ public class Post {
     // The list of images associated with the post (can be empty, up to 4 or more images)
     private List<Image> imageList;
 
+    // Defines if the post should be visible on the platform
+    private boolean visible;
+
     // Constructor to initialize a Post instance with the given parameters
     public Post(User author, Theme relatedTheme, String text, Image imageList) {
         this.author = author;
         this.relatedTheme = relatedTheme;
         this.text = text;
         this.imageList = new ArrayList<>();
+        visible = false;
     }
 
     // Getter method to retrieve the author of the post
@@ -76,4 +80,11 @@ public class Post {
         return imageList;
     }
 
+    public void setVisibility(boolean visible){
+        this.visible = visible;
+    }
+
+    public boolean getVisibility() {
+        return this.visible;
+    } 
 }

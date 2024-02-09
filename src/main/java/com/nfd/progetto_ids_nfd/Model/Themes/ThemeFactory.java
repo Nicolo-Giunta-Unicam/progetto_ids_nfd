@@ -2,6 +2,11 @@ package com.nfd.progetto_ids_nfd.Model.Themes;
 
 public class ThemeFactory {
 
+    public static Theme createTheme(Theme theme){
+        // TODO Switch case to createSpecificTheme()
+        return null;
+    }
+
     // Method to create an instance of Activity theme
     public static Theme createActivityTheme() {
         return new Activity();
