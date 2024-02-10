@@ -1,4 +1,5 @@
 package com.nfd.progetto_ids_nfd.Model.Users;
+
 import java.util.Date;
 
 import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
@@ -34,13 +35,20 @@ public class UserFactory {
         return new ModeratorUser(name, surname, email, password, registrationDate);
     }
 
-    public static User ConvertUser(User user, Role role) {
+    /**
+     * Converts a generic User to a specific User based on the provided role.
+     * 
+     * @param user The user to convert.
+     * @param role The role to convert the user to.
+     * @return A specific User instance based on the provided role.
+     */
+    public static User convertUser(User user, Role role) {
         String name = user.getName();
         String surname = user.getSurname();
         String email = user.getEmail();
         String password = user.getPassword();
         Date registrationDate = user.getRegistrationDate();
-    
+
         switch (role) {
             case Authenticated:
                 return createAuthenticatedUser(name, surname, email, password, registrationDate);
@@ -56,5 +64,4 @@ public class UserFactory {
                 return null;
         }
     }
-    
 }

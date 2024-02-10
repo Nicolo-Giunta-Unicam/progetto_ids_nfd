@@ -1,12 +1,14 @@
 package com.nfd.progetto_ids_nfd.Model.Users;
+
 import java.util.Date;
 
 import com.nfd.progetto_ids_nfd.Model.Contents.Post;
 import com.nfd.progetto_ids_nfd.Model.Requests.Request;
 import com.nfd.progetto_ids_nfd.Model.Requests.RequestFactory;
 import com.nfd.progetto_ids_nfd.Model.Themes.Theme;
+
 /*
- * CuratorUser can upload contests, events or tourist places/services of 
+ * CuratorUser can upload contests, events, or tourist places/services of 
  * which it has authority.
  */
 public class CuratorUser extends AuthenticatedUser {
@@ -15,18 +17,33 @@ public class CuratorUser extends AuthenticatedUser {
         super(name, surname, email, password, registrationDate);
     }
 
+    /**
+     * Creates a post request.
+     * 
+     * @param post The post for which the request is created.
+     */
     @Override
-    public void createPostRequest(Post post){
+    public void createPostRequest(Post post) {
+        // Create a post request using the RequestFactory
         Request request = RequestFactory.createPostRequest(this, post);
-        // If the user is also the curator of the choosen theme approve automatically the request
-        if(post.getRelatedTheme().getCurator().equals(this)) 
-            request.approve(this);
 
-        // TODO send request to DB
+        // If the user is also the curator of the chosen theme, approve the request automatically
+        if (post.getRelatedTheme().getCurator().equals(this)) {
+            request.approve(this);
+        }
+
+        // TODO: Send the request to the database
     }
 
-    public void createThemeRequest(Theme theme){
+    /**
+     * Creates a theme request.
+     * 
+     * @param theme The theme for which the request is created.
+     */
+    public void createThemeRequest(Theme theme) {
+        // Create a theme request using the RequestFactory
         Request request = RequestFactory.createThemeRequest(this, theme);
-        // TODO send request to DB
+
+        // TODO: Send the request to the database
     }
 }

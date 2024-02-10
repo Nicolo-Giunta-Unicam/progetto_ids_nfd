@@ -1,5 +1,8 @@
 package com.nfd.progetto_ids_nfd.Model.Users;
+
 import java.util.Date;
+import com.nfd.progetto_ids_nfd.Model.Requests.Request;
+
 /*
  * GestorUser deals with reviewing content, reporting, providing roles 
  * to users, higher level.
@@ -10,11 +13,21 @@ public class GestorUser extends User {
         super(name, surname, email, password, registrationDate);
     }
 
-   public void approve(){
+    /**
+     * Approves a request.
+     * 
+     * @param request The request to be approved.
+     */
+    public void approve(Request request) {
+        request.approve(this);
+    }
 
-   }
-
-   public void disapprove(){
-    
-   }
+    /**
+     * Disapproves a request.
+     * 
+     * @param request The request to be disapproved.
+     */
+    public void disapprove(Request request) {
+        request.disapprove(this);
+    }
 }

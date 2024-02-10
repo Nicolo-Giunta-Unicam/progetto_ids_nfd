@@ -39,7 +39,7 @@ public class PostRequest extends Request {
     }
 
     // Send the request to another user that is a Gestor
-    public void Forward(){
+    public void forward(){
         receiver = Role.Gestor;
         // TODO Update Request in DataBase
     }
