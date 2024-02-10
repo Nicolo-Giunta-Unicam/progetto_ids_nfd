@@ -18,13 +18,13 @@ public class AuthenticatedUser extends User {
     }
 
     public void createPostRequest(Post post){
-        // TODO
         Request request = RequestFactory.createPostRequest(this, post);
+        
     }
 
     public void createItinerary(List<Theme> themeList){
-        // TODO
         Itinerary itinerary = new Itinerary(this, themeList);
+        // TODO send request to DB
     }
     
 }

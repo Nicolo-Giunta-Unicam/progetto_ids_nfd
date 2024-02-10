@@ -16,8 +16,8 @@ public class AuthorizedUser extends AuthenticatedUser {
 
     @Override
     public void createPostRequest(Post post){
-        // TODO
         Request request = RequestFactory.createPostRequest(this, post);
         request.approve(this);
+        // TODO send request to DB
     }
 }

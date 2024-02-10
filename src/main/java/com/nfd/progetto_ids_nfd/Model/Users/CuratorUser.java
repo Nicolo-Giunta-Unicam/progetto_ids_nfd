@@ -17,15 +17,16 @@ public class CuratorUser extends AuthenticatedUser {
 
     @Override
     public void createPostRequest(Post post){
-        // TODO
         Request request = RequestFactory.createPostRequest(this, post);
         // If the user is also the curator of the choosen theme approve automatically the request
         if(post.getRelatedTheme().getCurator().equals(this)) 
             request.approve(this);
+
+        // TODO send request to DB
     }
 
     public void createThemeRequest(Theme theme){
-        // TODO
         Request request = RequestFactory.createThemeRequest(this, theme);
+        // TODO send request to DB
     }
 }
