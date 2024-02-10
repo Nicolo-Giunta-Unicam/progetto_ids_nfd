@@ -35,7 +35,7 @@ public class RoleRequest extends Request {
     public void approve(User validator){
         if(validator instanceof GestorUser){
             super.approve(validator);
-            sender = UserFactory.ConvertUser(sender, requestedRole);
+            sender = UserFactory.convertUser(sender, requestedRole);
             // TODO Update the Request and the User on the DataBase
         }
     }
