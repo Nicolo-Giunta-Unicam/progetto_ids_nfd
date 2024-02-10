@@ -4,4 +4,5 @@ package com.nfd.progetto_ids_nfd.Model.Themes;
  */
 public class PointOfInterest extends Theme {
     
+    
 }
