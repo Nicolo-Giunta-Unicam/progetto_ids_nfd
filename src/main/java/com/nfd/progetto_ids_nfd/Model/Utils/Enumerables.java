@@ -5,6 +5,8 @@ public class Enumerables{
     public enum Role {Authenticated, Authorized, Moderator, Curator, Gestor}
 
     // Enumeration for the request state
-    public enum RequestState {pending, approved, disapproved}
+    public enum RequestState {Pending, Approved, Disapproved}
+    
+    public enum ThemeParameter {VAT_Number, Sector, StartDate, EndDate}
 }
 

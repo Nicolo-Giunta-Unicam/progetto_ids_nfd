@@ -2,30 +2,32 @@ package com.nfd.progetto_ids_nfd.Model.Themes;
 
 import com.nfd.progetto_ids_nfd.Model.Users.CuratorUser;
 import com.nfd.progetto_ids_nfd.Model.Utils.Coordinates;
-import java.util.Date;
-import java.util.List;
+import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.ThemeParameter;
 
+import java.util.List;
+import java.util.Map;
 /*
  * This is an abstract class that describes a theme. It contains the
  * Curator that created it, addition date, name, coordinates, description
  * and a contacts List.
  */
-public abstract class Theme {
-    protected CuratorUser curator;
-    protected Date additionDate;
-    protected String name;
-    protected Coordinates coordinates;
-    protected String description;
-    protected List<String> contactsList;
-
-    public Theme (CuratorUser curator, Date additiDate, String name, Coordinates coordinates, String description, List<String> contactList)
+public class Theme {
+    private CuratorUser curator;
+    private String additionDate;
+    private String name;
+    private Coordinates coordinates;
+    private String description;
+    private List<String> contactsList;
+    private Map<ThemeParameter, String> parameters;
+    public Theme (CuratorUser curator, String additionDate2, String name, Coordinates coordinates, String description, List<String> contactsList, Map<ThemeParameter, String> parameters)
     {
         this.curator=curator;
-        this.additionDate=additiDate;
+        this.additionDate=additionDate2;
         this.name=name;
         this.coordinates=coordinates;
         this.description=description;
-        this.contactsList=contactList;
+        this.contactsList=contactsList;
+        this.parameters=parameters;
     }
 
     // Getters
@@ -33,7 +35,7 @@ public abstract class Theme {
         return curator;
     }
 
-    public Date getAdditionDate() {
+    public String getAdditionDate() {
         return additionDate;
     }
 
@@ -53,12 +55,16 @@ public abstract class Theme {
         return contactsList;
     }
 
+    public Map<ThemeParameter, String> getParameters() {
+        return parameters;
+    }
+
     // Setters
     public void setCurator(CuratorUser curator) {
         this.curator = curator;
     }
 
-    public void setAdditionDate(Date additionDate) {
+    public void setAdditionDate(String additionDate) {
         this.additionDate = additionDate;
     }
 
@@ -76,5 +82,14 @@ public abstract class Theme {
 
     public void setContactsList(List<String> contactsList) {
         this.contactsList = contactsList;
+    }
+
+    public void setParameters(Map<ThemeParameter, String> parameters) {
+        this.parameters = parameters;
+    }
+
+    // Metodo per ottenere un parametro specifico
+    public String getParameter(ThemeParameter parameter) {
+        return parameters.get(parameter);
     }
 }

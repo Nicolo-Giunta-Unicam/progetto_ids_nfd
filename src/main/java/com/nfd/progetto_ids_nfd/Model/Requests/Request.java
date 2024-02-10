@@ -18,7 +18,7 @@ public abstract class Request {
     public Request(User sender, Role receiver){
         this.sender = sender;
         this.receiver = receiver;
-        this.state = RequestState.pending;
+        this.state = RequestState.Pending;
     }
 
     // Getter for the sender property
@@ -44,13 +44,13 @@ public abstract class Request {
     // Method to approve the request
     public void approve(User validator) {
         this.validator = validator;
-        state = RequestState.approved;
+        state = RequestState.Approved;
     }
 
     // Method to disapprove the request
     public void disapprove(User validator) {
         this.validator = validator;
-        state = RequestState.disapproved;
+        state = RequestState.Disapproved;
     }
 }
 
