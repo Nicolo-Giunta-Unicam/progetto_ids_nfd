@@ -2,6 +2,7 @@ package com.nfd.progetto_ids_nfd.Model.Themes;
 
 import com.nfd.progetto_ids_nfd.Model.Users.CuratorUser;
 import com.nfd.progetto_ids_nfd.Model.Utils.Coordinates;
+import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.ThemeCategory;
 import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.ThemeParameter;
 
 import java.util.List;
@@ -17,9 +18,10 @@ public class Theme {
     private String name;
     private Coordinates coordinates;
     private String description;
+    private ThemeCategory category;
     private List<String> contactsList;
     private Map<ThemeParameter, String> parameters;
-    public Theme (CuratorUser curator, String additionDate2, String name, Coordinates coordinates, String description, List<String> contactsList, Map<ThemeParameter, String> parameters)
+    public Theme (CuratorUser curator, String additionDate2, String name, Coordinates coordinates, String description, List<String> contactsList, Map<ThemeParameter, String> parameters, ThemeCategory category)
     {
         this.curator=curator;
         this.additionDate=additionDate2;
@@ -28,6 +30,7 @@ public class Theme {
         this.description=description;
         this.contactsList=contactsList;
         this.parameters=parameters;
+        this.category = category;
     }
 
     // Getters
@@ -59,6 +62,10 @@ public class Theme {
         return parameters;
     }
 
+    public ThemeCategory getCategory(){
+        return category;
+    }
+    
     // Setters
     public void setCurator(CuratorUser curator) {
         this.curator = curator;
@@ -88,6 +95,10 @@ public class Theme {
         this.parameters = parameters;
     }
 
+    public void setCategory(ThemeCategory category){
+        this.category = category;
+    }
+    
     // Metodo per ottenere un parametro specifico
     public String getParameter(ThemeParameter parameter) {
         return parameters.get(parameter);
