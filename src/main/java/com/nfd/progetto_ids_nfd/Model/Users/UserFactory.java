@@ -9,6 +9,17 @@ import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
  * is responsible for creating different types of users.
  */
 public class UserFactory {
+    public static User createUser(Role role, String name, String surname, String email, String password, Date registrationDate){
+        switch (role) {
+            case Authenticated:
+                return createAuthenticatedUser(name, surname, email, password, registrationDate);
+                
+        
+            default:
+                return null;
+            
+        }
+    }
 
     // Create and return an instance of AuthenticatedUser
     public static AuthenticatedUser createAuthenticatedUser(String name, String surname, String email, String password, Date registrationDate) {
