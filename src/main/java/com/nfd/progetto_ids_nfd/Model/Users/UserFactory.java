@@ -13,11 +13,16 @@ public class UserFactory {
         switch (role) {
             case Authenticated:
                 return createAuthenticatedUser(name, surname, email, password, registrationDate);
-                
-        
+            case Authorized:
+                return createAuthorizedUser(name, surname, email, password, registrationDate);
+            case Moderator:
+                return createModeratorUser(name, surname, email, password, registrationDate);
+            case Curator:
+                return createCuratorUser(name, surname, email, password, registrationDate);
+            case Gestor:
+                return createGestorUser(name, surname, email, password, registrationDate);
             default:
                 return null;
-            
         }
     }
 
