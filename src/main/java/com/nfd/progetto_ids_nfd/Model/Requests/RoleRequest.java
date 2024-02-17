@@ -13,7 +13,7 @@ public class RoleRequest extends Request {
     
 
     // Property to store the requested role
-    protected Role requestedRole;
+    private Role requestedRole;
 
 
     public RoleRequest(User sender, Role receiver, Role requestedRole){

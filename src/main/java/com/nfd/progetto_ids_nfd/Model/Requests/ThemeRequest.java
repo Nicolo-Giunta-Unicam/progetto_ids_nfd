@@ -12,7 +12,7 @@ import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
  */
 public class ThemeRequest extends Request {
     // Property
-    protected Theme theme; // The theme associated with the request
+    private Theme theme; // The theme associated with the request
 
     public ThemeRequest(CuratorUser sender, Role receiver, Theme theme){
         super(sender, receiver);

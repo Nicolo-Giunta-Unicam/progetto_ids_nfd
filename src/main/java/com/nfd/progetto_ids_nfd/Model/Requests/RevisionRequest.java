@@ -12,7 +12,7 @@ import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
  */
 public class RevisionRequest extends Request {
     // Property
-    protected Post post; // The post associated with the revision request
+    private Post post; // The post associated with the revision request
 
     public RevisionRequest(User sender, Role receiver, Post post){
         super(sender, receiver);

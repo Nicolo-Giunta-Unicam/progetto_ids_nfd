@@ -13,7 +13,7 @@ import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
  */
 public class PostRequest extends Request {
     // Property
-    protected Post post; // The post associated with the request
+    private Post post; // The post associated with the request
 
     public PostRequest(AuthenticatedUser sender, Role receiver, Post post){
         super(sender, receiver);
