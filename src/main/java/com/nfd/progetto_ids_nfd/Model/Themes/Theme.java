@@ -1,5 +1,6 @@
 package com.nfd.progetto_ids_nfd.Model.Themes;
 
+import com.nfd.progetto_ids_nfd.Model.Users.AuthorizedUser;
 import com.nfd.progetto_ids_nfd.Model.Users.CuratorUser;
 import com.nfd.progetto_ids_nfd.Model.Utils.Coordinates;
 import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.ThemeCategory;
@@ -21,16 +22,22 @@ public class Theme {
     private ThemeCategory category;
     private List<String> contactsList;
     private Map<ThemeParameter, String> parameters;
-    public Theme (CuratorUser curator, String additionDate2, String name, Coordinates coordinates, String description, List<String> contactsList, Map<ThemeParameter, String> parameters, ThemeCategory category)
-    {
-        this.curator=curator;
-        this.additionDate=additionDate2;
-        this.name=name;
-        this.coordinates=coordinates;
-        this.description=description;
-        this.contactsList=contactsList;
-        this.parameters=parameters;
+    private boolean isPrivate;
+    private List<AuthorizedUser> allowedUsers; // List of allowed users
+
+    public Theme(CuratorUser curator, String additionDate, String name, Coordinates coordinates,
+                 String description, List<String> contactsList, Map<ThemeParameter, String> parameters,
+                 ThemeCategory category, boolean isPrivate, List<AuthorizedUser> allowedUsers) {
+        this.curator = curator;
+        this.additionDate = additionDate;
+        this.name = name;
+        this.coordinates = coordinates;
+        this.description = description;
+        this.contactsList = contactsList;
+        this.parameters = parameters;
         this.category = category;
+        this.isPrivate = isPrivate;
+        this.allowedUsers = allowedUsers;
     }
 
     // Getters
@@ -62,10 +69,18 @@ public class Theme {
         return parameters;
     }
 
-    public ThemeCategory getCategory(){
+    public ThemeCategory getCategory() {
         return category;
     }
-    
+
+    public boolean isPrivate() {
+        return isPrivate;
+    }
+
+    public List<AuthorizedUser> getAllowedUsers() {
+        return allowedUsers;
+    }
+
     // Setters
     public void setCurator(CuratorUser curator) {
         this.curator = curator;
@@ -95,10 +110,22 @@ public class Theme {
         this.parameters = parameters;
     }
 
-    public void setCategory(ThemeCategory category){
+    public void setCategory(ThemeCategory category) {
         this.category = category;
     }
-    
+
+    public void setIsPrivate(boolean isPrivate) {
+        this.isPrivate = isPrivate;
+    }
+
+    public void setAllowedUsers(List<AuthorizedUser> allowedUsers) {
+        this.allowedUsers = allowedUsers;
+    }
+
+    public void AddUser(AuthorizedUser allowedUser){
+        allowedUsers.add(allowedUser);
+    }
+
     // Metodo per ottenere un parametro specifico
     public String getParameter(ThemeParameter parameter) {
         return parameters.get(parameter);
