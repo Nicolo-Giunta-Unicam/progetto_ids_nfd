@@ -30,4 +30,9 @@ public class RequestFactory {
     public static Request createThemeRequest(CuratorUser sender, Theme theme) {
         return new ThemeRequest(sender, Role.Gestor, theme);
     }
+
+    // Method to create a ThemeRequest
+    public static Request createInvitationRequest(AuthenticatedUser sender, Theme theme) {
+        return new InvitationRequest(sender, theme);
+    }
 }
