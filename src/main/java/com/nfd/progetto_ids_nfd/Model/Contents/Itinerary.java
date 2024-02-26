@@ -17,6 +17,9 @@ public class Itinerary {
 
     // The list of themes (can be empty, up to 4 or more themes)
     private List<Theme> themeList; 
+
+    // Defines if the post should be visible on the platform
+    private boolean visible;
     
     /**
      * Constructor for Itinerary.
@@ -72,5 +75,23 @@ public class Itinerary {
      */
     public List<Theme> getItinerary() {
         return themeList;
+    }
+
+    /**
+     * Set the visibility of the post on the platform.
+     *
+     * @param visible True if the post should be visible, false otherwise.
+     */
+    public void setVisibility(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * Get the visibility status of the post on the platform.
+     *
+     * @return True if the post is visible, false otherwise.
+     */
+    public boolean getVisibility() {
+        return this.visible;
     }
 }
