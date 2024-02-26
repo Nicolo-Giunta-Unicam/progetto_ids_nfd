@@ -6,22 +6,32 @@ import com.nfd.progetto_ids_nfd.Model.Users.CuratorUser;
 import com.nfd.progetto_ids_nfd.Model.Users.User;
 import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
 
-/*
- * This request is sent by a User to a Curator to ask permission of
- * creating posts for the a specific theme.
+/**
+ * Represents a request sent by a User to a Curator to ask permission for creating posts for a specific theme.
  */
 public class InvitationRequest extends Request {
+    
     // Property
     private Theme theme; // The theme associated with the request
     private CuratorUser receiverUser;
     
+    /**
+     * Constructs an InvitationRequest object.
+     * 
+     * @param sender The user sending the invitation request.
+     * @param theme The theme for which the user is requesting permission to create posts.
+     */
     public InvitationRequest(AuthenticatedUser sender, Theme theme){
         super(sender, Role.Curator);
         receiverUser = theme.getCurator();
         this.theme = theme;
     }
 
-    // Method to approve the invitation request
+    /**
+     * Approves the invitation request if the validator is the receiver user.
+     * 
+     * @param validator The user approving the invitation request.
+     */
     @Override
     public void approve(User validator){
         if(validator.equals(receiverUser)){
@@ -29,7 +39,12 @@ public class InvitationRequest extends Request {
             // TODO Allow the user to post on the related theme
         }
     }
-    // Method to disapprove the invitation request
+    
+    /**
+     * Disapproves the invitation request if the validator is the receiver user.
+     * 
+     * @param validator The user disapproving the invitation request.
+     */
     @Override
     public void disapprove(User validator){
         if(validator.equals(receiverUser)){
