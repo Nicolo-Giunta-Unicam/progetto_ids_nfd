@@ -1,5 +1,6 @@
 package com.nfd.progetto_ids_nfd.Model.Themes;
 
+import com.nfd.progetto_ids_nfd.Model.Users.AuthenticatedUser;
 import com.nfd.progetto_ids_nfd.Model.Users.AuthorizedUser;
 import com.nfd.progetto_ids_nfd.Model.Users.CuratorUser;
 import com.nfd.progetto_ids_nfd.Model.Utils.Coordinates;
@@ -23,11 +24,11 @@ public class Theme {
     private List<String> contactsList;
     private Map<ThemeParameter, String> parameters;
     private boolean isPrivate;
-    private List<AuthorizedUser> allowedUsers; // List of allowed users
+    private List<AuthenticatedUser> allowedUsers; // List of allowed users
 
     public Theme(CuratorUser curator, String additionDate, String name, Coordinates coordinates,
                  String description, List<String> contactsList, Map<ThemeParameter, String> parameters,
-                 ThemeCategory category, boolean isPrivate, List<AuthorizedUser> allowedUsers) {
+                 ThemeCategory category, boolean isPrivate, List<AuthenticatedUser> allowedUsers) {
         this.curator = curator;
         this.additionDate = additionDate;
         this.name = name;
@@ -77,7 +78,7 @@ public class Theme {
         return isPrivate;
     }
 
-    public List<AuthorizedUser> getAllowedUsers() {
+    public List<AuthenticatedUser> getAllowedUsers() {
         return allowedUsers;
     }
 
@@ -118,11 +119,11 @@ public class Theme {
         this.isPrivate = isPrivate;
     }
 
-    public void setAllowedUsers(List<AuthorizedUser> allowedUsers) {
+    public void setAllowedUsers(List<AuthenticatedUser> allowedUsers) {
         this.allowedUsers = allowedUsers;
     }
 
-    public void AddUser(AuthorizedUser allowedUser){
+    public void AddUser(AuthenticatedUser allowedUser){
         allowedUsers.add(allowedUser);
     }
 

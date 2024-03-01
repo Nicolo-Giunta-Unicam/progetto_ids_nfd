@@ -4,6 +4,7 @@ import com.nfd.progetto_ids_nfd.Model.Themes.Theme;
 import com.nfd.progetto_ids_nfd.Model.Users.AuthenticatedUser;
 import com.nfd.progetto_ids_nfd.Model.Users.CuratorUser;
 import com.nfd.progetto_ids_nfd.Model.Users.User;
+import com.nfd.progetto_ids_nfd.Model.Users.UserFactory;
 import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
 
 /**
@@ -36,7 +37,8 @@ public class InvitationRequest extends Request {
     public void approve(User validator){
         if(validator.equals(receiverUser)){
             super.approve(validator);
-            // TODO Allow the user to post on the related theme
+            theme.AddUser((AuthenticatedUser) sender);
+            // TODO UPDATE DATABASE
         }
     }
     
