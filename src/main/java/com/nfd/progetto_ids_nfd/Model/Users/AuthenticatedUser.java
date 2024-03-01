@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.List;
 import com.nfd.progetto_ids_nfd.Model.Contents.Itinerary;
 import com.nfd.progetto_ids_nfd.Model.Contents.Post;
+import com.nfd.progetto_ids_nfd.Model.Requests.InvitationRequest;
 import com.nfd.progetto_ids_nfd.Model.Requests.ItineraryRequest;
 import com.nfd.progetto_ids_nfd.Model.Requests.Request;
 import com.nfd.progetto_ids_nfd.Model.Requests.RequestFactory;
@@ -41,5 +42,16 @@ public class AuthenticatedUser extends User {
         Itinerary itinerary = new Itinerary(this, themeList);
          Request request = new ItineraryRequest(this, Role.Moderator, itinerary);
         // TODO: Send the request to the database
+    }
+
+    /**
+     * Creates an InvitationRequest and adds it to the database.
+     * 
+     * @param sender The user sending the invitation request.
+     * @param theme The theme for which the user is requesting permission to create posts.
+     */
+    public void createInvitationRequest(AuthenticatedUser sender, Theme theme)
+    {
+        Request request = new InvitationRequest(sender, theme);
     }
 }

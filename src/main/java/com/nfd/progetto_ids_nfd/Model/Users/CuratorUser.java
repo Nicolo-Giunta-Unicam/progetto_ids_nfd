@@ -3,6 +3,7 @@ package com.nfd.progetto_ids_nfd.Model.Users;
 import java.util.Date;
 
 import com.nfd.progetto_ids_nfd.Model.Contents.Post;
+import com.nfd.progetto_ids_nfd.Model.Requests.InvitationRequest;
 import com.nfd.progetto_ids_nfd.Model.Requests.Request;
 import com.nfd.progetto_ids_nfd.Model.Requests.RequestFactory;
 import com.nfd.progetto_ids_nfd.Model.Themes.Theme;
@@ -45,5 +46,17 @@ public class CuratorUser extends AuthenticatedUser {
         Request request = RequestFactory.createThemeRequest(this, theme);
 
         // TODO: Send the request to the database
+    }
+
+    /**
+     * Creates an InvitationRequest and adds it to the database.
+     * 
+     * @param receiver The user receiving the invitation request.
+     * @param theme The theme for which the user is requesting permission to create posts.
+     */
+    public void createInvitationRequest(AuthenticatedUser recevier, Theme theme)
+    {
+        Request request = new InvitationRequest(recevier, theme);
+        request.approve(this);
     }
 }
