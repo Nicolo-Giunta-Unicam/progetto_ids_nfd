@@ -2,6 +2,7 @@ package com.nfd.progetto_ids_nfd.Model.Themes;
 
 import java.util.List;
 
+import com.nfd.progetto_ids_nfd.Model.Users.AuthenticatedUser;
 import com.nfd.progetto_ids_nfd.Model.Users.AuthorizedUser;
 import com.nfd.progetto_ids_nfd.Model.Users.CuratorUser;
 import com.nfd.progetto_ids_nfd.Model.Utils.Coordinates;
@@ -18,7 +19,7 @@ public class ThemeFactory {
 
     // Method to create an instance of Activity theme
     public static Theme createEventTheme(CuratorUser curator, String additionDate, String name, Coordinates coordinates, String description, List<String> contactsList, 
-    String startDate, String endDate, boolean isPrivate, List<AuthorizedUser> allowedUsers) {
+    String startDate, String endDate, boolean isPrivate, List<AuthenticatedUser> allowedUsers) {
         Map<ThemeParameter, String> parameters = new HashMap<ThemeParameter,String>();
         parameters.put(ThemeParameter.StartDate, startDate);
         parameters.put(ThemeParameter.StartDate, endDate);
@@ -27,7 +28,7 @@ public class ThemeFactory {
 
     // Method to create an instance of Event theme
     public static Theme createActivityTheme(CuratorUser curator, String additionDate, String name, Coordinates coordinates, String description, List<String> contactsList, 
-    String VATNumber, String sector, boolean isPrivate, List<AuthorizedUser> allowedUsers) {
+    String VATNumber, String sector, boolean isPrivate, List<AuthenticatedUser> allowedUsers) {
         Map<ThemeParameter, String> parameters = new HashMap<ThemeParameter,String>();
         parameters.put(ThemeParameter.VAT_Number, VATNumber);
         parameters.put(ThemeParameter.Sector, sector);
@@ -36,7 +37,7 @@ public class ThemeFactory {
 
     // Method to create an instance of PointOfInterest theme
     public static Theme createPointOfInterestTheme(CuratorUser curator, String additionDate, String name, Coordinates coordinates, String description, List<String> contactsList,
-        boolean isPrivate, List<AuthorizedUser> allowedUsers) {
+        boolean isPrivate, List<AuthenticatedUser> allowedUsers) {
         Map<ThemeParameter, String> parameters = new HashMap<ThemeParameter,String>();
         return new Theme(curator, additionDate, name, coordinates, description, contactsList, parameters, ThemeCategory.PointOfInterest, isPrivate, allowedUsers);
     }
