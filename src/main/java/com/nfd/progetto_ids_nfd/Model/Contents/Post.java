@@ -1,4 +1,5 @@
 package com.nfd.progetto_ids_nfd.Model.Contents;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +27,15 @@ public class Post {
     // Defines if the post should be visible on the platform
     private boolean visible;
 
-    // Constructor to initialize a Post instance with the given parameters
-    public Post(User author, Theme relatedTheme, String text, Image imageList) {
+    /**
+     * Constructor for Post.
+     *
+     * @param author The author of the post.
+     * @param relatedTheme The theme related to the post.
+     * @param text The text content of the post (can be empty).
+     * @param imageList The list of images associated with the post (can be empty, up to 4).
+     */
+    public Post(User author, Theme relatedTheme, String text, List<Image> imageList) {
         this.author = author;
         this.relatedTheme = relatedTheme;
         this.text = text;
@@ -35,56 +43,102 @@ public class Post {
         visible = false;
     }
 
-    // Getter method to retrieve the author of the post
+    /**
+     * Get the author of the post.
+     *
+     * @return The author of the post.
+     */
     public User getAuthor() {
         return author;
     }
 
-    // Setter method to set or update the author of the post
+    /**
+     * Set or update the author of the post.
+     *
+     * @param author The author of the post.
+     */
     public void setAuthor(User author) {
         this.author = author;
     }
 
-    // Getter method to retrieve the theme related to the post
+    /**
+     * Get the theme related to the post.
+     *
+     * @return The theme related to the post.
+     */
     public Theme getRelatedTheme() {
         return relatedTheme;
     }
 
-    // Setter method to set or update the theme related to the post
+    /**
+     * Set or update the theme related to the post.
+     *
+     * @param relatedTheme The theme related to the post.
+     */
     public void setRelatedTheme(Theme relatedTheme) {
         this.relatedTheme = relatedTheme;
     }
 
-    // Getter method to retrieve the text content of the post
+    /**
+     * Get the text content of the post.
+     *
+     * @return The text content of the post.
+     */
     public String getText() {
         return text;
     }
 
-    // Setter method to set or update the text content of the post
+    /**
+     * Set or update the text content of the post.
+     *
+     * @param text The text content of the post.
+     */
     public void setText(String text) {
         this.text = text;
     }
 
-    // Add an image to the list
+    /**
+     * Add an image to the list of images associated with the post.
+     *
+     * @param image The image to be added.
+     */
     public void addImage(Image image) {
         imageList.add(image);
     }
 
-    // Remove an image from the list
+    /**
+     * Remove an image from the list of images associated with the post.
+     *
+     * @param image The image to be removed.
+     */
     public void removeImage(Image image) {
         imageList.remove(image);
     }
 
-    // Get all images in the list
+    /**
+     * Get all images associated with the post.
+     *
+     * @return The list of images associated with the post.
+     */
     public List<Image> getImages() {
         return imageList;
     }
 
-    public void setVisibility(boolean visible){
+    /**
+     * Set the visibility of the post on the platform.
+     *
+     * @param visible True if the post should be visible, false otherwise.
+     */
+    public void setVisibility(boolean visible) {
         this.visible = visible;
     }
 
+    /**
+     * Get the visibility status of the post on the platform.
+     *
+     * @return True if the post is visible, false otherwise.
+     */
     public boolean getVisibility() {
         return this.visible;
-    } 
+    }
 }

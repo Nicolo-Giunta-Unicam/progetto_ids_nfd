@@ -5,21 +5,32 @@ import com.nfd.progetto_ids_nfd.Model.Users.GestorUser;
 import com.nfd.progetto_ids_nfd.Model.Users.User;
 import com.nfd.progetto_ids_nfd.Model.Utils.Enumerables.Role;
 
-/*
- * This request is generated when a Post is reported by a User.
- * It's defined by Post and other than being approved or disapproved it can also be
- * forwarded to a Gestor.
+/**
+ * Represents a request generated when a Post is reported by a User.
+ * This request is defined by the Post and can be approved or disapproved.
+ * It can also be forwarded to a Gestor.
  */
 public class RevisionRequest extends Request {
     // Property
-    protected Post post; // The post associated with the revision request
+    private Post post; // The post associated with the revision request
 
+    /**
+     * Constructs a RevisionRequest object.
+     * 
+     * @param sender The user who sends the revision request.
+     * @param receiver The role of the user who receives the revision request.
+     * @param post The post associated with the revision request.
+     */
     public RevisionRequest(User sender, Role receiver, Post post){
         super(sender, receiver);
         this.post = post;
     }
 
-    // Method to approve the revision request
+    /**
+     * Approves the revision request and sets the post visibility to false.
+     * 
+     * @param validator The user approving the revision request.
+     */
     @Override
     public void approve(User validator) {
         super.approve(validator);
@@ -30,7 +41,12 @@ public class RevisionRequest extends Request {
         }
     }
 
-    // Method to disapprove the post request
+    /**
+     * Disapproves the revision request.
+     * If the validator is a Gestor, the request will be deleted from the database.
+     * 
+     * @param validator The user disapproving the revision request.
+     */
     @Override
     public void disapprove(User validator) {
         super.disapprove(validator);
@@ -39,7 +55,9 @@ public class RevisionRequest extends Request {
         }
     }
 
-    // Send the request to another user that is a Gestor
+    /**
+     * Forwards the request to another user who is a Gestor.
+     */
     public void Forward(){
         receiver = Role.Gestor;
         // TODO Update Request in DataBase

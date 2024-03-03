@@ -17,36 +17,81 @@ public class Itinerary {
 
     // The list of themes (can be empty, up to 4 or more themes)
     private List<Theme> themeList; 
+
+    // Defines if the post should be visible on the platform
+    private boolean visible;
     
-    // Constructor to initialize an Itinerary instance with the given parameters
-    public Itinerary(User author, List<Theme> themeList2)
-    {
-        this.author=author;
+    /**
+     * Constructor for Itinerary.
+     *
+     * @param author The author of the itinerary.
+     * @param themeList The list of themes for the itinerary.
+     */
+    public Itinerary(User author, List<Theme> themeList) {
+        this.author = author;
         this.themeList = new ArrayList<>();
     }
 
-    // Getter method to retrieve the author of the itinerary
+    /**
+     * Get the author of the itinerary.
+     *
+     * @return The author of the itinerary.
+     */
     public User getAuthor() {
         return author;
     }
 
-    // Setter method to set or update the author of the itinerary
+    /**
+     * Set or update the author of the itinerary.
+     *
+     * @param author The author of the itinerary.
+     */
     public void setAuthor(User author) {
         this.author = author;
     }
 
-     // Add an itinerary to the list
+    /**
+     * Add a theme to the itinerary.
+     *
+     * @param theme The theme to be added to the itinerary.
+     */
     public void addItinerary(Theme theme) {
         themeList.add(theme);
     }
 
-    // Remove an image from the list
-    public void removeImage(Theme theme) {
+    /**
+     * Remove a theme from the itinerary.
+     *
+     * @param theme The theme to be removed from the itinerary.
+     */
+    public void removeTheme(Theme theme) {
         themeList.remove(theme);
     }
 
-    // Get all images in the list
+    /**
+     * Get all themes in the itinerary.
+     *
+     * @return The list of themes in the itinerary.
+     */
     public List<Theme> getItinerary() {
         return themeList;
+    }
+
+    /**
+     * Set the visibility of the post on the platform.
+     *
+     * @param visible True if the post should be visible, false otherwise.
+     */
+    public void setVisibility(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * Get the visibility status of the post on the platform.
+     *
+     * @return True if the post is visible, false otherwise.
+     */
+    public boolean getVisibility() {
+        return this.visible;
     }
 }
