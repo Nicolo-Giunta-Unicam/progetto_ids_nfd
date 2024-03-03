@@ -1,37 +1,57 @@
 // Define the package for the class
 package com.nfd.progetto_ids_nfd.Model.Utils;
 
-/*
+/**
  * This class represents geographical coordinates using latitude and longitude.
  * It may include functionalities related to OpenStreetMap (OSM) compatibility.
  */
 public class Coordinates {
     // Instance variables to store latitude and longitude
-    private double latitude;
-    private double longitude;
+    private double latitude; // The latitude of the coordinates
+    private double longitude; // The longitude of the coordinates
 
-    // Constructor to initialize the coordinates
+    /**
+     * Constructor to initialize the coordinates.
+     * @param latitude The latitude value of the coordinates
+     * @param longitude The longitude value of the coordinates
+     */
     public Coordinates(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    // Getter method for latitude
+    /**
+     * Gets the latitude of the coordinates.
+     * @return The latitude value of the coordinates
+     */
     public double getLatitude() {
         return latitude;
     }
 
-    // Getter method for longitude
+    /**
+     * Gets the longitude of the coordinates.
+     * @return The longitude value of the coordinates
+     */
     public double getLongitude() {
         return longitude;
     } 
 
-    // Setter method for both
+    /**
+     * Sets the coordinates to the specified latitude and longitude.
+     * @param latitude The latitude value to set
+     * @param longitude The longitude value to set
+     */
     public void setCoordinates(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
+    /**
+     * Calculates the distance between two coordinates using the Haversine formula.
+     * @param c1 The first set of coordinates
+     * @param c2 The second set of coordinates
+     * @return The distance between the two sets of coordinates in kilometers
+     */
     public static double calculateDistance(Coordinates c1, Coordinates c2) {
 
         // Radius of the Earth in kilometers

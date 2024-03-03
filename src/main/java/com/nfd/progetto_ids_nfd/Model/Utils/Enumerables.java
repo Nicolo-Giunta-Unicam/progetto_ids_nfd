@@ -1,5 +1,8 @@
 package com.nfd.progetto_ids_nfd.Model.Utils;
 
+/**
+ * This class contains various enumerations used within the project.
+ */
 public class Enumerables {
     // Enumeration for the requested roles
     public enum Role {
